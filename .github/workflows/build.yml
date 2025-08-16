@@ -1,12 +1,12 @@
 name: Build Reusable
 on:
   workflow_call:              # 保留字, 被呼叫 -> 接收其他 action 或 workflow 呼叫
-    inputs:
-      version:
-        required: true
-        type: string
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
+    inputs:                   # 保留字
+      version:                # 外部呼叫的參數名稱 , 可以自訂
+        required: true        # 保留字
+        type: string          # 保留字 只能 string , boolean , int 
+jobs:                         # 保留字
+  build:                      # 可以自訂
+    runs-on: ubuntu-latest    # 保留字 作業系統
+    steps:                    # 保留字 
       - run: echo "Building version ${{ inputs.version }}"
