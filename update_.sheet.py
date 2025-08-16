@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone, timedelta 
 import os
 import json
 import gspread
@@ -18,8 +18,9 @@ gc = gspread.authorize(creds)
 SHEET_ID = "1r3Jxc1vHQ853S8xnY_USeXkvz0NFzJOoZPHiu_i7ZuE"
 worksheet = gc.open_by_key(SHEET_ID).sheet1
 
+tz = timezone(timedelta(hours=8))  # Taiwan +8:00
 # 寫入目前時間到下一行
-now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+now = datetime.now(tz).strftime("%Y-%m-%d %H:%M:%S")
 worksheet.append_row([now, "GitHub Actions 自動記錄"])
 
 print(f"已寫入:{now}")
