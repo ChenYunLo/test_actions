@@ -32,8 +32,8 @@ jobs:
         
       - name: save csv
         run: |
-          git config --global user.name "yunlou"
-          git config --global user.email "chen@gmail.com"  
+          git config --global user.name  "ChenYunLo"
+          git config --global user.email "chen@yunlou.net"  
           if git diff --cached --quiet; then
             echo "No changes to commit"
             exit 0
